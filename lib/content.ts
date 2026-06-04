@@ -1,0 +1,135 @@
+/** Centralised site content so sections stay declarative and easy to edit. */
+
+export const nav = [
+  { label: "About", href: "#about" },
+  { label: "Collections", href: "#collections" },
+  { label: "Why L-TAG", href: "#why" },
+  { label: "Process", href: "#process" },
+  { label: "Partners", href: "#partners" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const aboutPillars = [
+  {
+    title: "Global Sourcing",
+    body: "Direct relationships with vetted manufacturers across key textile regions, giving you access to the right product at the right scale.",
+  },
+  {
+    title: "Quality Assurance",
+    body: "Every shipment passes structured inspection and compliance checks before it reaches your floor — consistency you can build a brand on.",
+  },
+  {
+    title: "Competitive Pricing",
+    body: "Wholesale economics without the markup chain. We negotiate at volume so your margins stay healthy season after season.",
+  },
+  {
+    title: "Reliable Imports",
+    body: "End-to-end import handling — documentation, freight, and customs — managed by a team that does this every single day.",
+  },
+  {
+    title: "Retail Partnerships",
+    body: "We work as an extension of your buying team, building long-term supply relationships rather than one-off transactions.",
+  },
+];
+
+export const collections = [
+  {
+    title: "Women's Fashion",
+    description: "Contemporary ready-to-wear, curated for modern retail floors.",
+    tone: "from-[#e9dfd4] to-[#d8c7b6]",
+  },
+  {
+    title: "Men's Fashion",
+    description: "Refined essentials and statement pieces with enduring appeal.",
+    tone: "from-[#d6d3cd] to-[#b9b4ac]",
+  },
+  {
+    title: "Casual Wear",
+    description: "Everyday comfort engineered for repeat-purchase categories.",
+    tone: "from-[#e6e2db] to-[#ccc4b6]",
+  },
+  {
+    title: "Formal Wear",
+    description: "Tailored silhouettes and occasion dressing, precisely finished.",
+    tone: "from-[#cfc6bb] to-[#a99e8d]",
+  },
+  {
+    title: "Seasonal Collections",
+    description: "Trend-led capsules timed to the rhythm of your buying calendar.",
+    tone: "from-[#ece3d6] to-[#d7c4a8]",
+  },
+  {
+    title: "Accessories",
+    description: "High-margin finishing pieces that complete the assortment.",
+    tone: "from-[#e3ddd4] to-[#c5b9a6]",
+  },
+];
+
+export const whyFeatures = [
+  {
+    title: "International Sourcing",
+    body: "A global supplier network across multiple textile hubs, sourced and vetted in person.",
+  },
+  {
+    title: "Quality Control",
+    body: "Multi-stage inspection on fabric, construction, and finishing before dispatch.",
+  },
+  {
+    title: "Competitive Pricing",
+    body: "Volume-negotiated rates that protect your retail margins.",
+  },
+  {
+    title: "Fast Logistics",
+    body: "Optimised freight routes and customs handling for dependable lead times.",
+  },
+  {
+    title: "Bulk Order Support",
+    body: "Scalable MOQs and flexible production planning for growing accounts.",
+  },
+  {
+    title: "Retail-Ready Collections",
+    body: "Labelled, tagged, and packed to your specification — straight to the floor.",
+  },
+];
+
+export const processSteps = [
+  {
+    step: "01",
+    title: "Inquiry",
+    body: "Share your categories, volumes, and target markets to open the conversation.",
+  },
+  {
+    step: "02",
+    title: "Consultation",
+    body: "We align on assortment, pricing tiers, timelines, and compliance requirements.",
+  },
+  {
+    step: "03",
+    title: "Product Selection",
+    body: "Curate from current ranges or develop a tailored capsule with our sourcing team.",
+  },
+  {
+    step: "04",
+    title: "Order Confirmation",
+    body: "Specifications, samples, and terms are locked with a transparent quotation.",
+  },
+  {
+    step: "05",
+    title: "Logistics",
+    body: "Production, inspection, freight, and customs are managed end to end.",
+  },
+  {
+    step: "06",
+    title: "Delivery",
+    body: "Retail-ready goods arrive on schedule, packed to your exact requirements.",
+  },
+];
+
+export const businessTypes = [
+  "Boutique / Independent Retailer",
+  "Department Store",
+  "Online Retailer / E-commerce",
+  "Distributor / Wholesaler",
+  "Fashion Brand / Label",
+  "Other",
+];
