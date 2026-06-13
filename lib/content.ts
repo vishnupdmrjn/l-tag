@@ -149,7 +149,7 @@ export const inauguration = {
   ctaHref: "#showroom",
   // Drop the poster image at this path (any aspect ratio) to replace the
   // designed placeholder; leave as null to keep the placeholder.
-  poster: null as string | null,
+  poster: "/img/showroom-inauguration.png" as string | null,
 };
 
 export const businessTypes = [

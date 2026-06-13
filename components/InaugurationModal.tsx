@@ -76,62 +76,89 @@ export function InaugurationModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.98, y: 8 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="relative grid w-full max-w-3xl overflow-hidden rounded-3xl bg-ivory shadow-2xl sm:grid-cols-2"
+            className={
+              inauguration.poster
+                ? "relative w-full max-w-md overflow-hidden rounded-3xl bg-ivory shadow-2xl"
+                : "relative grid w-full max-w-3xl overflow-hidden rounded-3xl bg-ivory shadow-2xl sm:grid-cols-2"
+            }
           >
-            {/* Poster / placeholder */}
-            <div className="relative aspect-[4/5] sm:aspect-auto">
-              {inauguration.poster ? (
-                <Image
-                  src={inauguration.poster}
-                  alt="L-TAG showroom inauguration"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 384px"
-                  className="object-cover"
-                  priority
-                />
-              ) : (
-                <PosterPlaceholder />
-              )}
-            </div>
+            {inauguration.poster ? (
+              /* Poster-centric: the artwork carries the date, venue & details. */
+              <>
+                <h2 id="inauguration-title" className="sr-only">
+                  {inauguration.title} — {inauguration.location}
+                </h2>
+                <div className="relative aspect-square">
+                  <Image
+                    src={inauguration.poster}
+                    alt="L-TAG showroom inauguration announcement"
+                    fill
+                    sizes="(max-width: 640px) 92vw, 448px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="p-4">
+                  <a
+                    href={inauguration.ctaHref}
+                    onClick={close}
+                    className="focus-ring group flex w-full items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-ivory transition-all duration-300 ease-smooth hover:bg-ink-soft"
+                  >
+                    {inauguration.ctaLabel}
+                    <span
+                      aria-hidden
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </div>
+              </>
+            ) : (
+              /* Fallback: designed placeholder + text until a poster is added. */
+              <>
+                <div className="relative aspect-[4/5] sm:aspect-auto">
+                  <PosterPlaceholder />
+                </div>
+                <div className="flex flex-col justify-center p-7 sm:p-9">
+                  <p className="eyebrow">{inauguration.eyebrow}</p>
+                  <h2
+                    id="inauguration-title"
+                    className="mt-3 text-balance font-display text-3xl font-bold leading-tight tracking-tightest sm:text-[2rem]"
+                  >
+                    {inauguration.title}
+                  </h2>
 
-            {/* Details */}
-            <div className="flex flex-col justify-center p-7 sm:p-9">
-              <p className="eyebrow">{inauguration.eyebrow}</p>
-              <h2
-                id="inauguration-title"
-                className="mt-3 text-balance font-display text-3xl font-bold leading-tight tracking-tightest sm:text-[2rem]"
-              >
-                {inauguration.title}
-              </h2>
+                  <div className="mt-5 space-y-2 text-sm">
+                    <p className="flex items-center gap-2 text-ink-soft">
+                      <span className="text-champagne-dark">◆</span>
+                      <span className="font-display text-base font-semibold">
+                        {inauguration.date}
+                      </span>
+                    </p>
+                    <p className="text-ink-muted">{inauguration.location}</p>
+                  </div>
 
-              <div className="mt-5 space-y-2 text-sm">
-                <p className="flex items-center gap-2 text-ink-soft">
-                  <span className="text-champagne-dark">◆</span>
-                  <span className="font-display text-base font-semibold">
-                    {inauguration.date}
-                  </span>
-                </p>
-                <p className="text-ink-muted">{inauguration.location}</p>
-              </div>
+                  <p className="mt-5 text-[15px] leading-relaxed text-ink-muted">
+                    {inauguration.blurb}
+                  </p>
 
-              <p className="mt-5 text-[15px] leading-relaxed text-ink-muted">
-                {inauguration.blurb}
-              </p>
-
-              <a
-                href={inauguration.ctaHref}
-                onClick={close}
-                className="focus-ring group mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-ivory transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:bg-ink-soft"
-              >
-                {inauguration.ctaLabel}
-                <span
-                  aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
-            </div>
+                  <a
+                    href={inauguration.ctaHref}
+                    onClick={close}
+                    className="focus-ring group mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-ivory transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:bg-ink-soft"
+                  >
+                    {inauguration.ctaLabel}
+                    <span
+                      aria-hidden
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                </div>
+              </>
+            )}
 
             {/* Close button */}
             <button
