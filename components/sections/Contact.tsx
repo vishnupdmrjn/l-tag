@@ -78,10 +78,10 @@ export function Contact() {
                   Phone
                 </p>
                 <a
-                  href="tel:+10000000000"
+                  href="tel:+919061040777"
                   className="focus-ring mt-1 inline-block rounded font-display text-lg font-medium text-ink transition-colors hover:text-champagne-dark"
                 >
-                  +1 (000) 000-0000
+                  +91 90610 40777
                 </a>
               </div>
               <div>

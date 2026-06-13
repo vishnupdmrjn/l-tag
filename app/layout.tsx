@@ -81,7 +81,7 @@ export default function RootLayout({
     url: siteUrl,
     description:
       "Premium international garment sourcing and wholesale distribution for retailers, boutiques, and fashion businesses worldwide.",
-    slogan: "Imported Fashion. Wholesale Excellence.",
+    slogan: "Imported Fashion",
     areaServed: "Worldwide",
     knowsAbout: [
       "Garment import",

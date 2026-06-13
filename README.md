@@ -45,6 +45,6 @@ lib/
 
 - **Copy & data** live in [`lib/content.ts`](lib/content.ts).
 - **Brand colours / fonts** are in [`tailwind.config.ts`](tailwind.config.ts).
-- **Collection imagery**: cards in [`components/sections/Collections.tsx`](components/sections/Collections.tsx) use tasteful fabric-tone gradient placeholders. Swap the `<div>` placeholder for `next/image` editorial photography when assets are ready.
+- **Brand logo** is the L-TAG monogram at [`public/logo/ltag-logo.svg`](public/logo/ltag-logo.svg), rendered by [`components/ui/Logo.tsx`](components/ui/Logo.tsx).
+- **Collection imagery** lives in [`public/img`](public/img) and is referenced from [`lib/content.ts`](lib/content.ts); served via `next/image` in [`components/sections/Collections.tsx`](components/sections/Collections.tsx). Source images are sized to ~1600px wide for fast optimization.
 - **Contact form** is a front-end demo (shows a success state). Wire `handleSubmit` in [`components/sections/Contact.tsx`](components/sections/Contact.tsx) to your CRM/email endpoint.
-- **Partner logos** in [`components/sections/Partners.tsx`](components/sections/Partners.tsx) are placeholder wordmarks ready to be replaced with real logo images.

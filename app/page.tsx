@@ -6,7 +6,6 @@ import { About } from "@/components/sections/About";
 import { Collections } from "@/components/sections/Collections";
 import { WhyLtag } from "@/components/sections/WhyLtag";
 import { Process } from "@/components/sections/Process";
-import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
         <Collections />
         <WhyLtag />
         <Process />
-        <Partners />
         <Contact />
       </main>
       <Footer />

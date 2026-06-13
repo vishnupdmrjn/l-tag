@@ -5,7 +5,6 @@ export const nav = [
   { label: "Collections", href: "#collections" },
   { label: "Why L-TAG", href: "#why" },
   { label: "Process", href: "#process" },
-  { label: "Partners", href: "#partners" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -36,32 +35,17 @@ export const collections = [
   {
     title: "Women's Fashion",
     description: "Contemporary ready-to-wear, curated for modern retail floors.",
-    tone: "from-[#e9dfd4] to-[#d8c7b6]",
+    image: "/img/womens-fashion.jpg",
   },
   {
     title: "Men's Fashion",
     description: "Refined essentials and statement pieces with enduring appeal.",
-    tone: "from-[#d6d3cd] to-[#b9b4ac]",
+    image: "/img/mens-fashion.jpg",
   },
   {
-    title: "Casual Wear",
-    description: "Everyday comfort engineered for repeat-purchase categories.",
-    tone: "from-[#e6e2db] to-[#ccc4b6]",
-  },
-  {
-    title: "Formal Wear",
-    description: "Tailored silhouettes and occasion dressing, precisely finished.",
-    tone: "from-[#cfc6bb] to-[#a99e8d]",
-  },
-  {
-    title: "Seasonal Collections",
-    description: "Trend-led capsules timed to the rhythm of your buying calendar.",
-    tone: "from-[#ece3d6] to-[#d7c4a8]",
-  },
-  {
-    title: "Accessories",
-    description: "High-margin finishing pieces that complete the assortment.",
-    tone: "from-[#e3ddd4] to-[#c5b9a6]",
+    title: "Kids Fashion",
+    description: "Playful, durable styling built for fast-moving family retail.",
+    image: "/img/kids-fashion.jpg",
   },
 ];
 

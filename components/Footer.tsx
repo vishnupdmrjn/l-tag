@@ -16,6 +16,9 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
           <div className="max-w-sm">
             <Logo className="text-2xl" />
+            <p className="mt-3 text-xs uppercase tracking-widest text-champagne-dark">
+              Imported Fashion
+            </p>
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">
               Premium international garment sourcing and wholesale distribution
               for retailers, boutiques, and fashion businesses worldwide.
@@ -55,10 +58,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+10000000000"
+                  href="tel:+919061040777"
                   className="focus-ring rounded text-ink-soft transition-colors duration-300 hover:text-champagne-dark"
                 >
-                  +1 (000) 000-0000
+                  +91 90610 40777
                 </a>
               </li>
             </ul>
@@ -85,7 +88,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 text-xs text-ink-muted sm:flex-row sm:items-center">
           <p>© {year} L-TAG. All rights reserved.</p>
-          <p className="tracking-wide">Imported Fashion. Wholesale Excellence.</p>
+          <p className="tracking-wide">Imported Fashion</p>
         </div>
       </div>
     </footer>

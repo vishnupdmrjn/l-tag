@@ -1,22 +1,46 @@
+import Image from "next/image";
+
 type LogoProps = {
   className?: string;
-  /** Accessible label; set to empty when used decoratively next to text. */
+  /** Pixel size of the square monogram mark. */
+  markSize?: number;
+  /** Hide the wordmark and show only the monogram. */
+  markOnly?: boolean;
+  /** Accessible label for the brand. */
   label?: string;
 };
 
 /**
- * L-TAG wordmark rendered as crisp text matching the brand's bold,
- * geometric sans-serif. Uses the display font + tight tracking so it scales
- * sharply at any size without shipping a raster image.
+ * L-TAG brand lockup: the official square monogram mark (public/logo) paired
+ * with the bold, geometric "L-TAG" wordmark. The SVG is served unoptimized so
+ * it stays crisp at any size.
  */
-export function Logo({ className = "", label = "L-TAG" }: LogoProps) {
+export function Logo({
+  className = "",
+  markSize = 30,
+  markOnly = false,
+  label = "L-TAG — Imported Fashion",
+}: LogoProps) {
   return (
     <span
-      className={`font-display font-bold leading-none tracking-tightest ${className}`}
-      aria-label={label || undefined}
-      role={label ? "img" : undefined}
+      className={`inline-flex items-center gap-2.5 ${className}`}
+      aria-label={label}
+      role="img"
     >
-      L<span className="mx-[0.04em] font-medium text-champagne">-</span>TAG
+      <Image
+        src="/logo/ltag-logo.svg"
+        alt=""
+        width={markSize}
+        height={markSize}
+        priority
+        unoptimized
+        className="h-[1.15em] w-auto"
+      />
+      {!markOnly && (
+        <span className="font-display font-bold leading-none tracking-tightest">
+          L<span className="mx-[0.02em] font-medium text-champagne">-</span>TAG
+        </span>
+      )}
     </span>
   );
 }

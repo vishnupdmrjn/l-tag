@@ -30,3 +30,7 @@ next-env.d.ts
 # local tooling / editor config
 /.claude
 .vercel
+
+# raw source asset drop (optimized copies live in /public)
+/asset
+.DS_Store

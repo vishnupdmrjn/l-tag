@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal, revealItem } from "../ui/Reveal";
@@ -22,7 +23,7 @@ export function Collections() {
           as="div"
           className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {collections.map((c) => (
+          {collections.map((c, i) => (
             <motion.a
               key={c.title}
               href="#contact"
@@ -30,12 +31,16 @@ export function Collections() {
               className="focus-ring group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-ink/5"
               aria-label={`${c.title} — request wholesale details`}
             >
-              {/* Editorial-style fabric tone placeholder. Swap for photography. */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${c.tone} transition-transform duration-700 ease-smooth group-hover:scale-[1.06]`}
+              <Image
+                src={c.image}
+                alt={`${c.title} collection`}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={85}
+                priority={i === 0}
+                className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.06]"
               />
-              <div className="satin-sheen absolute inset-0 opacity-60" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/15 to-transparent" />
 
               <div className="relative p-6">
                 <h3 className="font-display text-xl font-semibold text-ivory drop-shadow-sm">
