@@ -3,6 +3,7 @@
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Collections", href: "#collections" },
+  { label: "Showroom", href: "#showroom" },
   { label: "Why L-TAG", href: "#why" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
@@ -109,6 +110,48 @@ export const processSteps = [
   },
 ];
 
+export const showroom = {
+  city: "Malappuram",
+  region: "Kerala, India",
+  // TODO: replace with the exact street address + PIN code.
+  addressLines: ["L-TAG Showroom", "Malappuram, Kerala"],
+  hours: "Mon–Sat · 10:00 AM – 8:00 PM",
+  phoneDisplay: "+91 90610 40777",
+  phoneHref: "tel:+919061040777",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=L-TAG+Showroom+Malappuram+Kerala",
+  // Reasons to visit in person.
+  highlights: [
+    {
+      title: "See the imported stock in person",
+      body: "Browse our full range of imported apparel on the floor — feel the fabric, check the fit, and choose exactly what works for you.",
+    },
+    {
+      title: "Curated, ready to take home",
+      body: "Every piece is selected from our international sourcing — quality-checked and retail-ready, with new arrivals each season.",
+    },
+    {
+      title: "Personal guidance",
+      body: "Our team helps you pick across collections and sizes, whether you're shopping for yourself or buying for your store.",
+    },
+  ],
+};
+
+export const inauguration = {
+  eyebrow: "You're Invited",
+  title: "Grand Showroom Inauguration",
+  // TODO: set the real date once confirmed.
+  date: "Opening Soon",
+  location: "Malappuram, Kerala",
+  blurb:
+    "Step into L-TAG's first showroom and explore our imported fashion collection in person.",
+  ctaLabel: "Plan Your Visit",
+  ctaHref: "#showroom",
+  // Drop the poster image at this path (any aspect ratio) to replace the
+  // designed placeholder; leave as null to keep the placeholder.
+  poster: null as string | null,
+};
+
 export const businessTypes = [
   "Boutique / Independent Retailer",
   "Department Store",
@@ -117,3 +160,9 @@ export const businessTypes = [
   "Fashion Brand / Label",
   "Other",
 ];
+
+/**
+ * WhatsApp number that receives lead-form enquiries, in wa.me format:
+ * country code + number, digits only (no "+", spaces, or dashes).
+ */
+export const whatsappNumber = "919061040777";

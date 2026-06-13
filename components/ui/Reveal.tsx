@@ -1,70 +1,76 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
-  /** Stagger delay in seconds. */
+  /** Transition delay in seconds (non-stagger only). */
   delay?: number;
-  /** Animate children sequentially when true. */
+  /** Animate direct children in sequence when scrolled into view. */
   stagger?: boolean;
   as?: "div" | "section" | "li" | "ul" | "ol" | "article" | "header" | "footer";
 };
 
 /**
- * Fade-up-on-scroll wrapper. Respects prefers-reduced-motion by rendering
- * content statically. Durations stay within the 300–700ms brief.
+ * Scroll-reveal that is SSR-safe and progressive-enhancement only.
+ *
+ * Content renders fully visible by default — the hidden state is applied on the
+ * client, after mount, and ONLY to elements that start below the fold. So if JS
+ * is slow, blocked, or fails to hydrate, every section is still visible. The
+ * fade-up itself is pure CSS (see globals.css), driven by the classes below.
  */
 export function Reveal({
   children,
-  className,
+  className = "",
   delay = 0,
   stagger = false,
   as = "div",
 }: RevealProps) {
-  const reduceMotion = useReducedMotion();
-  const MotionTag = motion[as];
+  const ref = useRef<HTMLElement | null>(null);
+  const [state, setState] = useState<"" | "pre" | "show">("");
 
-  if (reduceMotion) {
-    const Tag = as;
-    return <Tag className={className}>{children}</Tag>;
-  }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
 
-  const variants: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay,
-        ...(stagger ? { staggerChildren: 0.1, delayChildren: delay } : {}),
+    const prefersReduced = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced || typeof IntersectionObserver === "undefined") return;
+
+    // Already in (or near) view at load → leave visible, never animate.
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+
+    setState("pre");
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setState("show");
+          io.disconnect();
+        }
       },
-    },
-  };
+      { rootMargin: "0px 0px -8% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const Tag = as as React.ElementType;
+  const cls = [
+    className,
+    stagger ? "reveal-stagger" : "",
+    state === "pre" ? "reveal-pre" : "",
+    state === "show" ? "reveal-show" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const style =
+    delay && !stagger && state ? { transitionDelay: `${delay}s` } : undefined;
 
   return (
-    <MotionTag
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-    >
+    <Tag ref={ref} className={cls} style={style}>
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
-
-/** Child item for use inside a staggered Reveal container. */
-export const revealItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-};

@@ -1,8 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Reveal, revealItem } from "../ui/Reveal";
+import { Reveal } from "../ui/Reveal";
 import { processSteps } from "@/lib/content";
 
 export function Process() {
@@ -23,9 +20,8 @@ export function Process() {
           />
           <div className="grid gap-y-10 md:grid-cols-3 md:gap-x-10 md:gap-y-14">
             {processSteps.map((s) => (
-              <motion.li
+              <li
                 key={s.step}
-                variants={revealItem}
                 className="relative flex gap-5 md:flex-col md:gap-4"
               >
                 <span className="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-champagne/40 bg-ivory font-display text-sm font-semibold text-champagne-dark">
@@ -39,7 +35,7 @@ export function Process() {
                     {s.body}
                   </p>
                 </div>
-              </motion.li>
+              </li>
             ))}
           </div>
         </Reveal>

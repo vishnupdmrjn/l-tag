@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 import { Button } from "../ui/Button";
-import { businessTypes } from "@/lib/content";
+import { businessTypes, whatsappNumber } from "@/lib/content";
 
 const fieldBase =
   "w-full rounded-xl border border-ink/15 bg-ivory/60 px-4 py-3 text-[15px] text-ink placeholder:text-ink-muted/60 transition-colors duration-300 focus:border-champagne focus-ring";
@@ -46,7 +45,37 @@ export function Contact() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Front-end demo: replace with your CRM / email endpoint.
+
+    // Build a WhatsApp message from the form fields and hand the lead off to
+    // the business WhatsApp chat. Optional fields are only included if filled.
+    const data = new FormData(e.currentTarget);
+    const get = (k: string) => (data.get(k) as string)?.trim() || "";
+
+    const rows: [string, string][] = [
+      ["Name", get("name")],
+      ["Company", get("company")],
+      ["Country", get("country")],
+      ["Email", get("email")],
+      ["Phone", get("phone")],
+      ["Business Type", get("businessType")],
+      ["Message", get("message")],
+    ];
+
+    const body = rows
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join("\n");
+
+    const text = encodeURIComponent(
+      `*New Wholesale Enquiry — L-TAG*\n\n${body}`
+    );
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${text}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
     setSubmitted(true);
   }
 
@@ -96,34 +125,33 @@ export function Contact() {
           </div>
 
           <Reveal className="rounded-3xl border border-ink/10 bg-ivory/70 p-6 backdrop-blur-sm sm:p-9">
-            <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex min-h-[24rem] flex-col items-center justify-center text-center"
-                >
+            {submitted ? (
+              <div className="flex min-h-[24rem] animate-fade-in flex-col items-center justify-center text-center">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full border border-champagne/40 text-2xl text-champagne-dark">
                     ✓
                   </div>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-ink">
-                    Thank you.
+                    Almost there.
                   </h3>
                   <p className="mt-3 max-w-sm text-ink-muted">
-                    Your enquiry has been received. A member of our wholesale
-                    team will be in touch shortly.
+                    We&apos;ve opened WhatsApp with your details — just tap{" "}
+                    <span className="font-medium text-ink">Send</span> and our
+                    wholesale team will reply shortly.
                   </p>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="form"
-                  onSubmit={handleSubmit}
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="grid grid-cols-1 gap-5 sm:grid-cols-2"
-                >
+                  <a
+                    href={`https://wa.me/${whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring mt-6 text-sm font-medium text-champagne-dark underline-offset-4 hover:underline"
+                  >
+                    WhatsApp didn&apos;t open? Tap here
+                  </a>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+              >
                   <Field label="Name" name="name" required autoComplete="name" />
                   <Field
                     label="Company"
@@ -204,9 +232,8 @@ export function Contact() {
                       </span>
                     </Button>
                   </div>
-                </motion.form>
-              )}
-            </AnimatePresence>
+              </form>
+            )}
           </Reveal>
         </div>
       </div>

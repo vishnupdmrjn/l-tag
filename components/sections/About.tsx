@@ -1,8 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Reveal, revealItem } from "../ui/Reveal";
+import { Reveal } from "../ui/Reveal";
 import { aboutPillars } from "@/lib/content";
 
 export function About() {
@@ -18,9 +15,8 @@ export function About() {
 
           <Reveal stagger as="div" className="grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2">
             {aboutPillars.map((pillar, i) => (
-              <motion.div
+              <div
                 key={pillar.title}
-                variants={revealItem}
                 className={`group bg-ivory/70 p-7 transition-colors duration-300 hover:bg-ivory-deep ${
                   i === aboutPillars.length - 1 ? "sm:col-span-2" : ""
                 }`}
@@ -31,7 +27,7 @@ export function About() {
                 <p className="mt-2.5 text-sm leading-relaxed text-ink-muted">
                   {pillar.body}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </Reveal>
         </div>
