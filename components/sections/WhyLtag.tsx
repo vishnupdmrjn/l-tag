@@ -1,8 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Reveal, revealItem } from "../ui/Reveal";
+import { Reveal } from "../ui/Reveal";
 import { whyFeatures } from "@/lib/content";
 
 export function WhyLtag() {
@@ -25,7 +22,7 @@ export function WhyLtag() {
           className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
         >
           {whyFeatures.map((f, i) => (
-            <motion.div key={f.title} variants={revealItem} className="group">
+            <div key={f.title} className="group">
               <div className="flex items-center gap-4">
                 <span className="font-display text-sm font-semibold tabular-nums text-champagne-dark">
                   {String(i + 1).padStart(2, "0")}
@@ -38,7 +35,7 @@ export function WhyLtag() {
               <p className="mt-2.5 text-[15px] leading-relaxed text-ink-muted">
                 {f.body}
               </p>
-            </motion.div>
+            </div>
           ))}
         </Reveal>
       </div>

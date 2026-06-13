@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Reveal, revealItem } from "../ui/Reveal";
+import { Reveal } from "../ui/Reveal";
 import { collections } from "@/lib/content";
 
 export function Collections() {
@@ -24,10 +21,9 @@ export function Collections() {
           className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {collections.map((c, i) => (
-            <motion.a
+            <a
               key={c.title}
               href="#contact"
-              variants={revealItem}
               className="focus-ring group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-ink/5"
               aria-label={`${c.title} — request wholesale details`}
             >
@@ -56,7 +52,7 @@ export function Collections() {
                   </span>
                 </span>
               </div>
-            </motion.a>
+            </a>
           ))}
         </Reveal>
       </div>

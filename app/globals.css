@@ -114,3 +114,86 @@
 .text-balance {
   text-wrap: balance;
 }
+
+/*
+ * Scroll-reveal + hero entrance animations.
+ *
+ * Everything here is purely additive: content is visible by default, and these
+ * styles only ever ADD a fade-up. The hidden state (.reveal-pre) is applied by
+ * JS after mount and only to below-the-fold elements, so content is never
+ * gated behind JavaScript. All of it is disabled under reduced-motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Single-element reveal */
+  .reveal-pre:not(.reveal-stagger) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .reveal-show:not(.reveal-stagger) {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Staggered children reveal */
+  .reveal-stagger.reveal-pre > * {
+    opacity: 0;
+  }
+  .reveal-stagger.reveal-show > * {
+    animation: reveal-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(1) {
+    animation-delay: 0.04s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(4) {
+    animation-delay: 0.22s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(5) {
+    animation-delay: 0.28s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(6) {
+    animation-delay: 0.34s;
+  }
+  .reveal-stagger.reveal-show > *:nth-child(n + 7) {
+    animation-delay: 0.4s;
+  }
+
+  /* Hero entrance — auto-plays on load (above the fold, no JS dependency). */
+  .hero-rise > * {
+    animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-rise > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .hero-rise > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .hero-rise > *:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+  .hero-rise > *:nth-child(4) {
+    animation-delay: 0.35s;
+  }
+  .hero-rise > *:nth-child(5) {
+    animation-delay: 0.45s;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
