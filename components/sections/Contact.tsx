@@ -54,7 +54,7 @@ export function Contact() {
     const rows: [string, string][] = [
       ["Name", get("name")],
       ["Company", get("company")],
-      ["Country", get("country")],
+      ["Location", get("location")],
       ["Email", get("email")],
       ["Phone", get("phone")],
       ["Business Type", get("businessType")],
@@ -160,9 +160,9 @@ export function Contact() {
                     autoComplete="organization"
                   />
                   <Field
-                    label="Country"
-                    name="country"
-                    autoComplete="country-name"
+                    label="Location"
+                    name="location"
+                    autoComplete="address-level2"
                   />
                   <Field
                     label="Email"
