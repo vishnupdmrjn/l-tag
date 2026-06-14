@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://l-tag.com/sitemap.xml",
+    sitemap: "https://ltagclothing.com/sitemap.xml",
   };
 }

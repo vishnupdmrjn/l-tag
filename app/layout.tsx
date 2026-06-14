@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const siteUrl = "https://l-tag.com";
+const siteUrl = "https://ltagclothing.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
