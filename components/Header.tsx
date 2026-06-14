@@ -38,7 +38,7 @@ export function Header() {
         className="container-x flex h-16 items-center justify-between md:h-20"
         aria-label="Primary"
       >
-        <a href="#main" className="focus-ring rounded-md" aria-label="L-TAG home">
+        <a href="#main" className="focus-ring rounded-md" aria-label="LTAG home">
           <Logo className="text-2xl md:text-[1.7rem]" />
         </a>
 

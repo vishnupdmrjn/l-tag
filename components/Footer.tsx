@@ -2,9 +2,7 @@ import { Logo } from "./ui/Logo";
 import { nav } from "@/lib/content";
 
 const social = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Pinterest", href: "https://pinterest.com" },
+  { label: "Instagram", href: "https://instagram.com/ltag.clothing" },
 ];
 
 export function Footer() {
@@ -50,18 +48,26 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
-                  href="mailto:wholesale@l-tag.com"
-                  className="focus-ring rounded text-ink-soft transition-colors duration-300 hover:text-champagne-dark"
-                >
-                  wholesale@l-tag.com
-                </a>
-              </li>
-              <li>
-                <a
                   href="tel:+919061040777"
                   className="focus-ring rounded text-ink-soft transition-colors duration-300 hover:text-champagne-dark"
                 >
                   +91 90610 40777
+                </a>
+              </li>
+            </ul>
+
+            <h2 className="mt-8 text-xs uppercase tracking-widest text-ink-muted">
+              Sourcing Partner
+            </h2>
+            <ul className="mt-4 text-sm">
+              <li>
+                <a
+                  href="https://www.kaizla.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring rounded text-ink-soft transition-colors duration-300 hover:text-champagne-dark"
+                >
+                  Kaiz La
                 </a>
               </li>
             </ul>
@@ -87,7 +93,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 text-xs text-ink-muted sm:flex-row sm:items-center">
-          <p>© {year} L-TAG. All rights reserved.</p>
+          <p>© {year} LTAG. All rights reserved.</p>
           <p className="tracking-wide">Imported Fashion</p>
         </div>
       </div>

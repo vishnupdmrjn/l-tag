@@ -11,7 +11,7 @@ export function WhyLtag() {
       <div className="container-x">
         <SectionHeading
           align="center"
-          eyebrow="Why L-TAG"
+          eyebrow="Why LTAG"
           title="The advantages that keep partners coming back."
           description="Everything a serious buyer needs from a wholesale import partner — under one roof."
         />

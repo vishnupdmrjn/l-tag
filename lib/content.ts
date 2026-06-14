@@ -4,7 +4,7 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Collections", href: "#collections" },
   { label: "Showroom", href: "#showroom" },
-  { label: "Why L-TAG", href: "#why" },
+  { label: "Why LTAG", href: "#why" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
@@ -112,27 +112,28 @@ export const processSteps = [
 
 export const showroom = {
   city: "Malappuram",
+  area: "Manjeri",
   region: "Kerala, India",
-  // TODO: replace with the exact street address + PIN code.
-  addressLines: ["L-TAG Showroom", "Malappuram, Kerala"],
+  // TODO: add the exact street/building + PIN code when available.
+  addressLines: ["LTAG Showroom", "Manjeri, Malappuram", "Kerala, India"],
   hours: "Mon–Sat · 10:00 AM – 8:00 PM",
   phoneDisplay: "+91 90610 40777",
   phoneHref: "tel:+919061040777",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=L-TAG+Showroom+Malappuram+Kerala",
-  // Reasons to visit in person.
+    "https://www.google.com/maps/search/?api=1&query=LTAG+Showroom+Manjeri+Malappuram+Kerala",
+  // Why wholesale buyers visit before placing an order.
   highlights: [
     {
-      title: "See the imported stock in person",
-      body: "Browse our full range of imported apparel on the floor — feel the fabric, check the fit, and choose exactly what works for you.",
+      title: "Inspect before you commit",
+      body: "Assess fabric, construction, and finishing on the floor — so you place every wholesale order with full confidence.",
     },
     {
-      title: "Curated, ready to take home",
-      body: "Every piece is selected from our international sourcing — quality-checked and retail-ready, with new arrivals each season.",
+      title: "The full imported range",
+      body: "Browse current collections and the latest arrivals across categories, gathered in one place.",
     },
     {
-      title: "Personal guidance",
-      body: "Our team helps you pick across collections and sizes, whether you're shopping for yourself or buying for your store.",
+      title: "Plan your order with our team",
+      body: "We help you build assortments, sizes, and volumes in person, then move straight to a quote.",
     },
   ],
 };
@@ -144,7 +145,7 @@ export const inauguration = {
   date: "Opening Soon",
   location: "Malappuram, Kerala",
   blurb:
-    "Step into L-TAG's first showroom and explore our imported fashion collection in person.",
+    "Step into LTAG's first showroom and explore our imported fashion collection in person.",
   ctaLabel: "Plan Your Visit",
   ctaHref: "#showroom",
   // Drop the poster image at this path (any aspect ratio) to replace the

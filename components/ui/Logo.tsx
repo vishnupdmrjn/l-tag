@@ -11,15 +11,15 @@ type LogoProps = {
 };
 
 /**
- * L-TAG brand lockup: the official square monogram mark (public/logo) paired
- * with the bold, geometric "L-TAG" wordmark. The SVG is served unoptimized so
+ * LTAG brand lockup: the official square monogram mark (public/logo) paired
+ * with the bold, geometric "LTAG" wordmark. The SVG is served unoptimized so
  * it stays crisp at any size.
  */
 export function Logo({
   className = "",
   markSize = 30,
   markOnly = false,
-  label = "L-TAG — Imported Fashion",
+  label = "LTAG — Imported Fashion",
 }: LogoProps) {
   return (
     <span
@@ -38,7 +38,7 @@ export function Logo({
       />
       {!markOnly && (
         <span className="font-display font-bold leading-none tracking-tightest">
-          L<span className="mx-[0.02em] font-medium text-champagne">-</span>TAG
+          LTAG
         </span>
       )}
     </span>

@@ -14,9 +14,9 @@ export function Showroom() {
           {/* Invitation copy + reasons to visit */}
           <div>
             <SectionHeading
-              eyebrow={`Visit Us · ${showroom.city}, Kerala`}
-              title="Choose your imported fashion, in person."
-              description="L-TAG is more than a catalogue. Visit our Malappuram showroom to explore the imported stock we carry — see it, feel it, and take home exactly what you love."
+              eyebrow={`Wholesale Showroom · ${showroom.area}, ${showroom.city}`}
+              title="Experience the collection before you order."
+              description="Our Manjeri showroom is built for wholesale buyers. Come see, feel, and assess our imported range in person — fabric, fit, and finish — before you place your order."
             />
 
             <Reveal stagger as="ul" className="mt-10 space-y-7">
@@ -67,7 +67,7 @@ export function Showroom() {
                       />
                     </svg>
                     <span className="mt-2 font-display text-sm font-semibold uppercase tracking-widest text-ink/70">
-                      {showroom.city}, Kerala
+                      {showroom.area}, {showroom.city}
                     </span>
                   </div>
                 </div>

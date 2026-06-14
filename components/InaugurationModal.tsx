@@ -91,7 +91,7 @@ export function InaugurationModal() {
                 <div className="relative aspect-square">
                   <Image
                     src={inauguration.poster}
-                    alt="L-TAG showroom inauguration announcement"
+                    alt="LTAG showroom inauguration announcement"
                     fill
                     sizes="(max-width: 640px) 92vw, 448px"
                     className="object-cover"

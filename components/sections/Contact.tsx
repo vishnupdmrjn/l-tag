@@ -67,7 +67,7 @@ export function Contact() {
       .join("\n");
 
     const text = encodeURIComponent(
-      `*New Wholesale Enquiry — L-TAG*\n\n${body}`
+      `*New Wholesale Enquiry — LTAG*\n\n${body}`
     );
 
     window.open(
@@ -91,17 +91,6 @@ export function Contact() {
             />
 
             <Reveal className="mt-10 space-y-6">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-ink-muted">
-                  Email
-                </p>
-                <a
-                  href="mailto:wholesale@l-tag.com"
-                  className="focus-ring mt-1 inline-block rounded font-display text-lg font-medium text-ink transition-colors hover:text-champagne-dark"
-                >
-                  wholesale@l-tag.com
-                </a>
-              </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-ink-muted">
                   Phone

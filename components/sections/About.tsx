@@ -10,7 +10,7 @@ export function About() {
           <SectionHeading
             eyebrow="Who We Are"
             title="A wholesale partner built for the way modern retail buys."
-            description="L-TAG is an international garment importer and wholesaler. We connect retailers, boutiques, and fashion businesses with premium apparel — sourced responsibly, priced competitively, and delivered retail-ready."
+            description="LTAG is an international garment importer and wholesaler. We connect retailers, boutiques, and fashion businesses with premium apparel — sourced responsibly, priced competitively, and delivered retail-ready."
           />
 
           <Reveal stagger as="div" className="grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2">
