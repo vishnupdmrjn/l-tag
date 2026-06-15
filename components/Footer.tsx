@@ -94,7 +94,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 text-xs text-ink-muted sm:flex-row sm:items-center">
           <p>© {year} LTAG. All rights reserved.</p>
-          <p className="tracking-wide">Imported Fashion</p>
+          <p className="tracking-wide">Crafted with care in Kerala</p>
         </div>
       </div>
     </footer>
